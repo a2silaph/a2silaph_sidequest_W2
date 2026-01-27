@@ -8,7 +8,7 @@ let blob3 = {
   y: 0,
 
   // Visual properties
-  r: 26, // Base radius
+  r: 20, // Base radius
   points: 48, // Number of points used to draw the blob
   wobble: 10, // Edge deformation amount changed from 7 to add more wobble effect
   wobbleFreq: 0.9,
@@ -134,6 +134,8 @@ function draw() {
 
   // Keep blob inside the canvas horizontally
   blob3.x = constrain(blob3.x, blob3.r, width - blob3.r);
+
+  blob3.y = max(blob3.y, blob3.r); // keep blob in screen vertically
 
   // --- Draw the animated blob ---
   blob3.t += blob3.tSpeed;
