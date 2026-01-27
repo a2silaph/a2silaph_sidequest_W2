@@ -32,7 +32,7 @@ let blob3 = {
 
   // Friction
   frictionAir: 0.995, // Light friction in air
-  frictionGround: 0.88, // Stronger friction on ground
+  frictionGround: 0.75, // Stronger friction on ground
 };
 
 // List of solid platforms the blob can stand on
@@ -66,7 +66,7 @@ function draw() {
   background(255, 235, 80);
 
   // --- Draw all platforms ---
-  fill(200);
+  fill(173, 216, 230);
   for (const p of platforms) {
     rect(p.x, p.y, p.w, p.h);
   }
@@ -156,7 +156,7 @@ function overlap(a, b) {
 
 // Draws the blob using Perlin noise for a soft, breathing effect
 function drawBlobCircle(b) {
-  fill(20, 120, 255);
+  fill(0, 255, 0); // green colour
   beginShape();
 
   for (let i = 0; i < b.points; i++) {
