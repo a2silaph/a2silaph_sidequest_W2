@@ -32,7 +32,7 @@ let blob3 = {
 
   // Friction
   frictionAir: 0.995, // Light friction in air
-  frictionGround: 0.995, // Stronger friction on ground
+  frictionGround: 0.88, // Stronger friction on ground
 };
 
 // List of solid platforms the blob can stand on
