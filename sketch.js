@@ -142,11 +142,6 @@ function draw() {
   // --- HUD ---
   fill(0);
   text("Move: A/D or ←/→  •  Jump: Space/W/↑  •  Land on platforms", 10, 18);
-
-  if (blob3.onGround && abs(prevVy) > 4) {
-    // Adding bounce to the blob
-    blob3.vy = -abs(prevVy) * 0.3;
-  }
 }
 
 // Axis-Aligned Bounding Box (AABB) overlap test
