@@ -22,17 +22,17 @@ let blob3 = {
   vy: 0, // Vertical velocity
 
   // Movement tuning
-  accel: 0.7, // Horizontal acceleration changed from 0.55 to make it faster
+  accel: 0.55, // Horizontal acceleration changed from 0.55 to make it faster
   maxRun: 4.0, // Maximum horizontal speed
-  gravity: 0.45, // Downward force changed from 0.65 to lower the gravity
-  jumpV: -13.0, // Initial jump impulse changed from -11
+  gravity: 0.65, // Downward force changed from 0.65 to lower the gravity
+  jumpV: -11.0, // Initial jump impulse changed from -11
 
   // State
   onGround: false, // True when standing on a platform
 
   // Friction
   frictionAir: 0.995, // Light friction in air
-  frictionGround: 0.9, // Stronger friction on ground
+  frictionGround: 0.88, // Stronger friction on ground
 };
 
 // List of solid platforms the blob can stand on
