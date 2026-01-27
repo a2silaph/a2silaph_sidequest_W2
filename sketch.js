@@ -118,7 +118,14 @@ function draw() {
       if (blob3.vy > 0) {
         // Falling → land on top of a platform
         box.y = s.y - box.h;
-        blob3.vy = 0;
+
+        // Joyful bounce
+        if (prevVy > 4) {
+          blob3.vy = -prevVy * 0.3;
+        } else {
+          blob3.vy = 0;
+        }
+
         blob3.onGround = true;
       } else if (blob3.vy < 0) {
         // Rising → hit the underside of a platform
@@ -136,9 +143,6 @@ function draw() {
   blob3.x = constrain(blob3.x, blob3.r, width - blob3.r);
 
   blob3.y = max(blob3.y, blob3.r); // keep blob in screen vertically
-
-  blob3.x = box.x + box.w / 2;
-  blob3.y = box.y + box.h / 2; // Constrain the blob
 
   // --- Draw the animated blob ---
   blob3.t += blob3.tSpeed;
