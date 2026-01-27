@@ -118,14 +118,7 @@ function draw() {
       if (blob3.vy > 0) {
         // Falling → land on top of a platform
         box.y = s.y - box.h;
-
-        // Joyful bounce
-        if (prevVy > 4) {
-          blob3.vy = -prevVy * 0.3;
-        } else {
-          blob3.vy = 0;
-        }
-
+        blob3.vy = 0;
         blob3.onGround = true;
       } else if (blob3.vy < 0) {
         // Rising → hit the underside of a platform
