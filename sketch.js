@@ -137,6 +137,9 @@ function draw() {
 
   blob3.y = max(blob3.y, blob3.r); // keep blob in screen vertically
 
+  blob3.x = box.x + box.w / 2;
+  blob3.y = box.y + box.h / 2; // Constrain the blob
+
   // --- Draw the animated blob ---
   blob3.t += blob3.tSpeed;
   drawBlobCircle(blob3);
