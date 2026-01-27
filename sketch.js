@@ -10,29 +10,29 @@ let blob3 = {
   // Visual properties
   r: 26, // Base radius
   points: 48, // Number of points used to draw the blob
-  wobble: 7, // Edge deformation amount
+  wobble: 10, // Edge deformation amount changed from 7 to add more wobble effect
   wobbleFreq: 0.9,
 
   // Time values for breathing animation
   t: 0,
-  tSpeed: 0.01,
+  tSpeed: 0.03, // changed from 0.1 to add faster breathing effect
 
   // Physics: velocity
   vx: 0, // Horizontal velocity
   vy: 0, // Vertical velocity
 
   // Movement tuning
-  accel: 0.55, // Horizontal acceleration
+  accel: 0.7, // Horizontal acceleration changed from 0.55 to make it faster
   maxRun: 4.0, // Maximum horizontal speed
-  gravity: 0.65, // Downward force
-  jumpV: -11.0, // Initial jump impulse
+  gravity: 0.45, // Downward force changed from 0.65 to lower the gravity
+  jumpV: -13.0, // Initial jump impulse changed from -11
 
   // State
   onGround: false, // True when standing on a platform
 
   // Friction
   frictionAir: 0.995, // Light friction in air
-  frictionGround: 0.88, // Stronger friction on ground
+  frictionGround: 0.9, // Stronger friction on ground
 };
 
 // List of solid platforms the blob can stand on
@@ -63,7 +63,7 @@ function setup() {
 }
 
 function draw() {
-  background(240);
+  background(255, 235, 80);
 
   // --- Draw all platforms ---
   fill(200);
@@ -142,6 +142,11 @@ function draw() {
   // --- HUD ---
   fill(0);
   text("Move: A/D or ←/→  •  Jump: Space/W/↑  •  Land on platforms", 10, 18);
+
+  if (blob3.onGround && abs(prevVy) > 4) {
+    // Adding bounce to the blob
+    blob3.vy = -abs(prevVy) * 0.3;
+  }
 }
 
 // Axis-Aligned Bounding Box (AABB) overlap test
